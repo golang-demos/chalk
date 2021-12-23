@@ -65,6 +65,12 @@ func (c *Color) White(makeIntense ...bool) *Color {
 	return c
 }
 
+// Text Styles
+func (c *Color) Bold() *Color {
+	c.style = 1
+	return c
+}
+
 var (
 	// Text Colors
 	Black  = (&Color{}).Black
@@ -77,6 +83,9 @@ var (
 	Violet = (&Color{}).Violet
 	Cyan   = (&Color{}).Cyan
 	White  = (&Color{}).White
+
+	// Text Styles
+	Bold = (&Color{}).Bold
 )
 
 // For all reset. BackgroundColor and TextColor
@@ -87,4 +96,5 @@ func Reset() string {
 func main() {
 
 	fmt.Println("--", Red(), "Red + Regular", Reset(), "--")
+	fmt.Println("--", Red().Bold(), "Red + Bold", Reset(), "--")
 }
