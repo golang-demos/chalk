@@ -24,14 +24,59 @@ func getColorIntensity(intensity []bool) (intensityVal int) {
 	}
 	return
 }
+func (c *Color) Black(makeIntense ...bool) *Color {
+	c.color = getColorIntensity(makeIntense) + 0
+	return c
+}
 func (c *Color) Red(makeIntense ...bool) *Color {
 	c.color = getColorIntensity(makeIntense) + 1
+	return c
+}
+func (c *Color) Green(makeIntense ...bool) *Color {
+	c.color = getColorIntensity(makeIntense) + 2
+	return c
+}
+func (c *Color) Orange(makeIntense ...bool) *Color {
+	c.color = getColorIntensity(makeIntense) + 3
+	return c
+}
+func (c *Color) Yellow(makeIntense ...bool) *Color {
+	c.color = getColorIntensity(makeIntense) + 3
+	return c
+}
+func (c *Color) Blue(makeIntense ...bool) *Color {
+	c.color = getColorIntensity(makeIntense) + 4
+	return c
+}
+func (c *Color) Purple(makeIntense ...bool) *Color {
+	c.color = getColorIntensity(makeIntense) + 5
+	return c
+}
+func (c *Color) Violet(makeIntense ...bool) *Color {
+	c.color = getColorIntensity(makeIntense) + 5
+	return c
+}
+func (c *Color) Cyan(makeIntense ...bool) *Color {
+	c.color = getColorIntensity(makeIntense) + 6
+	return c
+}
+func (c *Color) White(makeIntense ...bool) *Color {
+	c.color = getColorIntensity(makeIntense) + 7
 	return c
 }
 
 var (
 	// Text Colors
-	Red = (&Color{}).Red
+	Black  = (&Color{}).Black
+	Red    = (&Color{}).Red
+	Green  = (&Color{}).Green
+	Orange = (&Color{}).Orange
+	Yellow = (&Color{}).Yellow
+	Blue   = (&Color{}).Blue
+	Purple = (&Color{}).Purple
+	Violet = (&Color{}).Violet
+	Cyan   = (&Color{}).Cyan
+	White  = (&Color{}).White
 )
 
 // For all reset. BackgroundColor and TextColor
