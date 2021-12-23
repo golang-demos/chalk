@@ -70,6 +70,14 @@ func (c *Color) Bold() *Color {
 	c.style = 1
 	return c
 }
+func (c *Color) Dim() *Color {
+	c.style = 2
+	return c
+}
+func (c *Color) Italic() *Color {
+	c.style = 3
+	return c
+}
 
 var (
 	// Text Colors
@@ -85,7 +93,9 @@ var (
 	White  = (&Color{}).White
 
 	// Text Styles
-	Bold = (&Color{}).Bold
+	Bold   = (&Color{}).Bold
+	Dim    = (&Color{}).Dim
+	Italic = (&Color{}).Italic
 )
 
 // For all reset. BackgroundColor and TextColor
@@ -97,4 +107,5 @@ func main() {
 
 	fmt.Println("--", Red(), "Red + Regular", Reset(), "--")
 	fmt.Println("--", Red().Bold(), "Red + Bold", Reset(), "--")
+	fmt.Println("--", Red().Italic(), "Red + Italic", Reset(), "--")
 }
