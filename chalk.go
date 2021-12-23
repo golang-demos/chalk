@@ -95,6 +95,20 @@ func (c *Color) Strikethrough() *Color {
 	return c
 }
 
+// Background Colors
+func getBackgroundIntensity(intensity []bool) (intensityVal int) {
+	intensityVal = 40
+	if len(intensity) > 0 && intensity[0] {
+		intensityVal = 100
+	}
+	return
+}
+
+func (c *Color) BgRed(makeIntense ...bool) *Color {
+	c.bgcolor = getBackgroundIntensity(makeIntense) + 1
+	return c
+}
+
 var (
 	// Text Colors
 	Black  = (&Color{}).Black
@@ -116,6 +130,9 @@ var (
 	Inverse       = (&Color{}).Inverse
 	Hidden        = (&Color{}).Hidden
 	Strikethrough = (&Color{}).Strikethrough
+
+	// Background Colors
+	BgRed = (&Color{}).BgRed
 )
 
 // For all reset. BackgroundColor and TextColor
@@ -128,4 +145,7 @@ func main() {
 	fmt.Println("--", Red(), "Red + Regular", Reset(), "--")
 	fmt.Println("--", Red().Bold(), "Red + Bold", Reset(), "--")
 	fmt.Println("--", Red().Italic(), "Red + Italic", Reset(), "--")
+
+	fmt.Println("--", White().BgRed(), "Red + Regular", Reset(), "--")
+
 }
