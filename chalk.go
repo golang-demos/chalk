@@ -78,6 +78,22 @@ func (c *Color) Italic() *Color {
 	c.style = 3
 	return c
 }
+func (c *Color) Underline() *Color {
+	c.style = 4
+	return c
+}
+func (c *Color) Inverse() *Color {
+	c.style = 7
+	return c
+}
+func (c *Color) Hidden() *Color {
+	c.style = 8
+	return c
+}
+func (c *Color) Strikethrough() *Color {
+	c.style = 9
+	return c
+}
 
 var (
 	// Text Colors
@@ -93,9 +109,13 @@ var (
 	White  = (&Color{}).White
 
 	// Text Styles
-	Bold   = (&Color{}).Bold
-	Dim    = (&Color{}).Dim
-	Italic = (&Color{}).Italic
+	Bold          = (&Color{}).Bold
+	Dim           = (&Color{}).Dim
+	Italic        = (&Color{}).Italic
+	Underline     = (&Color{}).Underline
+	Inverse       = (&Color{}).Inverse
+	Hidden        = (&Color{}).Hidden
+	Strikethrough = (&Color{}).Strikethrough
 )
 
 // For all reset. BackgroundColor and TextColor
