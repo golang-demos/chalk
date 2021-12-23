@@ -104,8 +104,36 @@ func getBackgroundIntensity(intensity []bool) (intensityVal int) {
 	return
 }
 
+func (c *Color) BgBlack(makeIntense ...bool) *Color {
+	c.bgcolor = getBackgroundIntensity(makeIntense) + 0
+	return c
+}
 func (c *Color) BgRed(makeIntense ...bool) *Color {
 	c.bgcolor = getBackgroundIntensity(makeIntense) + 1
+	return c
+}
+func (c *Color) BgGreen(makeIntense ...bool) *Color {
+	c.bgcolor = getBackgroundIntensity(makeIntense) + 2
+	return c
+}
+func (c *Color) BgYellow(makeIntense ...bool) *Color {
+	c.bgcolor = getBackgroundIntensity(makeIntense) + 3
+	return c
+}
+func (c *Color) BgBlue(makeIntense ...bool) *Color {
+	c.bgcolor = getBackgroundIntensity(makeIntense) + 4
+	return c
+}
+func (c *Color) BgPurple(makeIntense ...bool) *Color {
+	c.bgcolor = getBackgroundIntensity(makeIntense) + 5
+	return c
+}
+func (c *Color) BgCyan(makeIntense ...bool) *Color {
+	c.bgcolor = getBackgroundIntensity(makeIntense) + 6
+	return c
+}
+func (c *Color) BgWhite(makeIntense ...bool) *Color {
+	c.bgcolor = getBackgroundIntensity(makeIntense) + 7
 	return c
 }
 
@@ -132,7 +160,14 @@ var (
 	Strikethrough = (&Color{}).Strikethrough
 
 	// Background Colors
-	BgRed = (&Color{}).BgRed
+	BgBlack  = (&Color{}).BgBlack
+	BgRed    = (&Color{}).BgRed
+	BgGreen  = (&Color{}).BgGreen
+	BgYellow = (&Color{}).BgYellow
+	BgBlue   = (&Color{}).BgBlue
+	BgPurple = (&Color{}).BgPurple
+	BgCyan   = (&Color{}).BgCyan
+	BgWhite  = (&Color{}).BgWhite
 )
 
 // For all reset. BackgroundColor and TextColor
