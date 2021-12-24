@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 type Color struct {
 	color   int
@@ -137,6 +139,11 @@ func (c *Color) BgWhite(makeIntense ...bool) *Color {
 	return c
 }
 
+// For all reset. BackgroundColor and TextColor
+func Reset() string {
+	return fmt.Sprintf("\u001b[0;%dm", 0)
+}
+
 var (
 	// Text Colors
 	Black  = (&Color{}).Black
@@ -170,11 +177,6 @@ var (
 	BgWhite  = (&Color{}).BgWhite
 )
 
-// For all reset. BackgroundColor and TextColor
-func Reset() string {
-	return fmt.Sprintf("\u001b[0;%dm", 0)
-}
-
 func main() {
 
 	fmt.Println("--", Red(), "Red + Regular", Reset(), "--")
@@ -182,5 +184,17 @@ func main() {
 	fmt.Println("--", Red().Italic(), "Red + Italic", Reset(), "--")
 
 	fmt.Println("--", White().BgRed(), "Red + Regular", Reset(), "--")
+
+	fmt.Println("--", White().Bold().BgRed(), "White + Bold + BgRed", Reset(), "--")
+	fmt.Println("--", White().Bold().BgRed(true), "White + Bold + BgRed(I)", Reset(), "--")
+
+	fmt.Println("--", Red().BgWhite(true), "Red + Regular + BgWhite(I)", Reset(), "--")
+	fmt.Println("--", Red(true).BgWhite(true), "Red(I) + Regular + BgWhite(I)", Reset(), "--")
+
+	fmt.Println("--", Black().Italic().BgGreen(), "Black + Italic + BgGreen", Reset(), "--")
+	fmt.Println("--", Black().Italic().BgGreen(true), "Black + Italic + BgGreen(I)", Reset(), "--")
+
+	fmt.Println("--", Cyan().BgBlack(true), "Cyan + Regular + BgBlack(I)", Reset(), "--")
+	fmt.Println("--", Cyan(true).BgBlack(true), "Cyan(I) + Regular + BgBlack(I)", Reset(), "--")
 
 }
