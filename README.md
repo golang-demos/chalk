@@ -1,6 +1,6 @@
 # Chalk
 
-Chalk is a Go Package which can be used for making terminal output more vibrant
+Chalk is a Go Package which can be used for making terminal output more vibrant with text colors, text styles and background colors.
 
 ## API Syntax
 ```
