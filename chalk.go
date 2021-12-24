@@ -1,4 +1,4 @@
-package main
+package chalk
 
 import (
 	"fmt"
@@ -176,25 +176,3 @@ var (
 	BgCyan   = (&Color{}).BgCyan
 	BgWhite  = (&Color{}).BgWhite
 )
-
-func main() {
-
-	fmt.Println("--", Red(), "Red + Regular", Reset(), "--")
-	fmt.Println("--", Red().Bold(), "Red + Bold", Reset(), "--")
-	fmt.Println("--", Red().Italic(), "Red + Italic", Reset(), "--")
-
-	fmt.Println("--", White().BgRed(), "Red + Regular", Reset(), "--")
-
-	fmt.Println("--", White().Bold().BgRed(), "White + Bold + BgRed", Reset(), "--")
-	fmt.Println("--", White().Bold().BgRed(true), "White + Bold + BgRed(I)", Reset(), "--")
-
-	fmt.Println("--", Red().BgWhite(true), "Red + Regular + BgWhite(I)", Reset(), "--")
-	fmt.Println("--", Red(true).BgWhite(true), "Red(I) + Regular + BgWhite(I)", Reset(), "--")
-
-	fmt.Println("--", Black().Italic().BgGreen(), "Black + Italic + BgGreen", Reset(), "--")
-	fmt.Println("--", Black().Italic().BgGreen(true), "Black + Italic + BgGreen(I)", Reset(), "--")
-
-	fmt.Println("--", Cyan().BgBlack(true), "Cyan + Regular + BgBlack(I)", Reset(), "--")
-	fmt.Println("--", Cyan(true).BgBlack(true), "Cyan(I) + Regular + BgBlack(I)", Reset(), "--")
-
-}
