@@ -10,12 +10,18 @@ type Color struct {
 	bgcolor int
 }
 
+var LIBRARY_DEVELOPER_MODE = false
+
 func (c Color) String() string {
-	styleText := fmt.Sprintf("\u001b[%dm", c.color)
-	if c.style > 0 {
-		styleText = fmt.Sprintf("\u001b[%d;%dm", c.style, c.color)
+	if LIBRARY_DEVELOPER_MODE {
+		return fmt.Sprintf("\\u001b[%dm", c.bgcolor) + fmt.Sprintf("\\u001b[%d;%dm", c.style, c.color)
+	} else {
+		styleText := fmt.Sprintf("\u001b[%dm", c.color)
+		if c.style > 0 {
+			styleText = fmt.Sprintf("\u001b[%d;%dm", c.style, c.color)
+		}
+		return fmt.Sprintf("\u001b[0;%dm", c.bgcolor) + styleText
 	}
-	return fmt.Sprintf("\u001b[%dm", c.bgcolor) + styleText
 }
 
 // Colors
@@ -141,7 +147,7 @@ func (c *Color) BgWhite(makeIntense ...bool) *Color {
 
 // For all reset. BackgroundColor and TextColor
 func Reset() string {
-	return fmt.Sprintf("\u001b[0;%dm", 0)
+	return fmt.Sprintf("\033[%dm", 0)
 }
 
 var (
