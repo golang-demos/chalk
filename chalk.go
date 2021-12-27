@@ -13,7 +13,7 @@ type Color struct {
 var LIBRARY_DEVELOPER_MODE = false
 
 func (c Color) String() string {
-	fmt.Println("\n", c.color, c.style, c.bgcolor)
+	fmt.Println("- ", c.color, c.style, c.bgcolor)
 	if LIBRARY_DEVELOPER_MODE {
 		return fmt.Sprintf("\\u001b[%dm", c.bgcolor) + fmt.Sprintf("\\u001b[%d;%dm", c.style, c.color)
 	} else {
@@ -38,7 +38,6 @@ func (c *Color) Black(makeIntense ...bool) *Color {
 	return c
 }
 func (c *Color) Red(makeIntense ...bool) *Color {
-	// log.Println(">", c.color, c.style, c.bgcolor)
 	c.color = getColorIntensity(makeIntense) + 1
 	return c
 }
@@ -150,9 +149,9 @@ func (c *Color) BgWhite(makeIntense ...bool) *Color {
 // For all reset. BackgroundColor and TextColor
 func Reset() string {
 	if LIBRARY_DEVELOPER_MODE {
-		return fmt.Sprintf("\\033[0;%dm\\033[%dm", 0, 49)
+		return fmt.Sprintf("\\033[%dm", 0)
 	} else {
-		return fmt.Sprintf("\033[0;%dm\033[%dm", 0, 49)
+		return fmt.Sprintf("\033[%dm", 0)
 	}
 }
 
