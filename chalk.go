@@ -2,6 +2,7 @@ package chalk
 
 import (
 	"fmt"
+	"strings"
 )
 
 type Color struct {
@@ -13,64 +14,110 @@ type Color struct {
 var LIBRARY_DEVELOPER_MODE = false
 
 func (c Color) String() string {
-	fmt.Println("- ", c.color, c.style, c.bgcolor)
-	if LIBRARY_DEVELOPER_MODE {
-		return fmt.Sprintf("\\u001b[%dm", c.bgcolor) + fmt.Sprintf("\\u001b[%d;%dm", c.style, c.color)
-	} else {
-		styleText := fmt.Sprintf("\u001b[0;%dm", c.color)
-		if c.style > 0 {
-			styleText = fmt.Sprintf("\u001b[%d;%dm", c.style, c.color)
-		}
-		return fmt.Sprintf("\u001b[0;%dm", c.bgcolor) + styleText
+	var ext, finalValue string
+	var parts []string
+
+	if c.bgcolor > 0 {
+		parts = append(parts, fmt.Sprintf("%d", c.bgcolor))
 	}
+	if c.color > 0 {
+		parts = append(parts, fmt.Sprintf("%d", c.color))
+	}
+	if c.style > 0 {
+		parts = append(parts, fmt.Sprintf("%d", c.style))
+	}
+
+	ext = strings.Join(parts[:], ";")
+
+	if LIBRARY_DEVELOPER_MODE {
+		finalValue = "\\u001b["
+	} else {
+		finalValue = "\u001b["
+	}
+	finalValue += ext + "m"
+	return finalValue
 }
 
 // Colors
-func getColorIntensity(intensity []bool) (intensityVal int) {
-	intensityVal = 30
-	if len(intensity) > 0 && intensity[0] {
-		intensityVal = 90
-	}
-	return
-}
-func (c *Color) Black(makeIntense ...bool) *Color {
-	c.color = getColorIntensity(makeIntense) + 0
+func (c *Color) Black() *Color {
+	c.color = 30
 	return c
 }
-func (c *Color) Red(makeIntense ...bool) *Color {
-	c.color = getColorIntensity(makeIntense) + 1
+func (c *Color) Red() *Color {
+	c.color = 31
 	return c
 }
-func (c *Color) Green(makeIntense ...bool) *Color {
-	c.color = getColorIntensity(makeIntense) + 2
+func (c *Color) Green() *Color {
+	c.color = 32
 	return c
 }
-func (c *Color) Orange(makeIntense ...bool) *Color {
-	c.color = getColorIntensity(makeIntense) + 3
+func (c *Color) Orange() *Color {
+	c.color = 33
 	return c
 }
-func (c *Color) Yellow(makeIntense ...bool) *Color {
-	c.color = getColorIntensity(makeIntense) + 3
+func (c *Color) Yellow() *Color {
+	c.color = 33
 	return c
 }
-func (c *Color) Blue(makeIntense ...bool) *Color {
-	c.color = getColorIntensity(makeIntense) + 4
+func (c *Color) Blue() *Color {
+	c.color = 34
 	return c
 }
-func (c *Color) Purple(makeIntense ...bool) *Color {
-	c.color = getColorIntensity(makeIntense) + 5
+func (c *Color) Purple() *Color {
+	c.color = 35
 	return c
 }
-func (c *Color) Violet(makeIntense ...bool) *Color {
-	c.color = getColorIntensity(makeIntense) + 5
+func (c *Color) Violet() *Color {
+	c.color = 35
 	return c
 }
-func (c *Color) Cyan(makeIntense ...bool) *Color {
-	c.color = getColorIntensity(makeIntense) + 6
+func (c *Color) Cyan() *Color {
+	c.color = 36
 	return c
 }
-func (c *Color) White(makeIntense ...bool) *Color {
-	c.color = getColorIntensity(makeIntense) + 7
+func (c *Color) White() *Color {
+	c.color = 37
+	return c
+}
+
+func (c *Color) BlackLight() *Color {
+	c.color = 90
+	return c
+}
+func (c *Color) RedLight() *Color {
+	c.color = 91
+	return c
+}
+func (c *Color) GreenLight() *Color {
+	c.color = 92
+	return c
+}
+func (c *Color) OrangeLight() *Color {
+	c.color = 93
+	return c
+}
+func (c *Color) YellowLight() *Color {
+	c.color = 93
+	return c
+}
+func (c *Color) BlueLight() *Color {
+	c.color = 94
+	return c
+}
+func (c *Color) PurpleLight() *Color {
+	c.color = 95
+	return c
+}
+func (c *Color) VioletLight() *Color {
+	c.color = 95
+	return c
+}
+func (c *Color) CyanLight() *Color {
+	c.color = 96
+	return c
+}
+func (c *Color) WhiteLight() *Color {
+	c.color = 97
 	return c
 }
 
@@ -105,44 +152,69 @@ func (c *Color) Strikethrough() *Color {
 }
 
 // Background Colors
-func getBackgroundIntensity(intensity []bool) (intensityVal int) {
-	intensityVal = 40
-	if len(intensity) > 0 && intensity[0] {
-		intensityVal = 100
-	}
-	return
+func (c *Color) BgBlack() *Color {
+	c.bgcolor = 40
+	return c
+}
+func (c *Color) BgRed() *Color {
+	c.bgcolor = 41
+	return c
+}
+func (c *Color) BgGreen() *Color {
+	c.bgcolor = 42
+	return c
+}
+func (c *Color) BgYellow() *Color {
+	c.bgcolor = 43
+	return c
+}
+func (c *Color) BgBlue() *Color {
+	c.bgcolor = 44
+	return c
+}
+func (c *Color) BgPurple() *Color {
+	c.bgcolor = 45
+	return c
+}
+func (c *Color) BgCyan() *Color {
+	c.bgcolor = 46
+	return c
+}
+func (c *Color) BgWhite() *Color {
+	c.bgcolor = 47
+	return c
 }
 
-func (c *Color) BgBlack(makeIntense ...bool) *Color {
-	c.bgcolor = getBackgroundIntensity(makeIntense) + 0
+func (c *Color) BgBlackLight() *Color {
+	c.bgcolor = 100
 	return c
 }
-func (c *Color) BgRed(makeIntense ...bool) *Color {
-	c.bgcolor = getBackgroundIntensity(makeIntense) + 1
+func (c *Color) BgRedLight() *Color {
+	c.bgcolor = 101
 	return c
 }
-func (c *Color) BgGreen(makeIntense ...bool) *Color {
-	c.bgcolor = getBackgroundIntensity(makeIntense) + 2
+func (c *Color) BgGreenLight() *Color {
+	c.bgcolor = 102
 	return c
 }
-func (c *Color) BgYellow(makeIntense ...bool) *Color {
-	c.bgcolor = getBackgroundIntensity(makeIntense) + 3
+func (c *Color) BgYellowLight() *Color {
+	c.bgcolor = 103
 	return c
 }
-func (c *Color) BgBlue(makeIntense ...bool) *Color {
-	c.bgcolor = getBackgroundIntensity(makeIntense) + 4
+func (c *Color) BgBlueLight() *Color {
+	c.bgcolor = 104
 	return c
 }
-func (c *Color) BgPurple(makeIntense ...bool) *Color {
-	c.bgcolor = getBackgroundIntensity(makeIntense) + 5
+func (c *Color) BgPurpleLight() *Color {
+	c.bgcolor = 105
 	return c
 }
-func (c *Color) BgCyan(makeIntense ...bool) *Color {
-	c.bgcolor = getBackgroundIntensity(makeIntense) + 6
+func (c *Color) BgCyanLight() *Color {
+	c.bgcolor = 106
 	return c
 }
-func (c *Color) BgWhite(makeIntense ...bool) *Color {
-	c.bgcolor = getBackgroundIntensity(makeIntense) + 7
+func (c *Color) BgWhiteLight() *Color {
+	c.bgcolor = 107
 	return c
 }
 
@@ -176,6 +248,18 @@ var (
 	Cyan   = func() *Color { return newColor().Cyan() }
 	White  = func() *Color { return newColor().White() }
 
+	// Text Light Colors
+	BlackLight  = func() *Color { return newColor().BlackLight() }
+	RedLight    = func() *Color { return newColor().RedLight() }
+	GreenLight  = func() *Color { return newColor().GreenLight() }
+	OrangeLight = func() *Color { return newColor().OrangeLight() }
+	YellowLight = func() *Color { return newColor().YellowLight() }
+	BlueLight   = func() *Color { return newColor().BlueLight() }
+	PurpleLight = func() *Color { return newColor().PurpleLight() }
+	VioletLight = func() *Color { return newColor().VioletLight() }
+	CyanLight   = func() *Color { return newColor().CyanLight() }
+	WhiteLight  = func() *Color { return newColor().WhiteLight() }
+
 	// Text Styles
 	Bold          = func() *Color { return newColor().Bold() }
 	Dim           = func() *Color { return newColor().Dim() }
@@ -194,4 +278,13 @@ var (
 	BgPurple = func() *Color { return newColor().BgPurple() }
 	BgCyan   = func() *Color { return newColor().BgCyan() }
 	BgWhite  = func() *Color { return newColor().BgWhite() }
+
+	BgBlackLight  = func() *Color { return newColor().BgBlackLight() }
+	BgRedLight    = func() *Color { return newColor().BgRedLight() }
+	BgGreenLight  = func() *Color { return newColor().BgGreenLight() }
+	BgYellowLight = func() *Color { return newColor().BgYellowLight() }
+	BgBlueLight   = func() *Color { return newColor().BgBlueLight() }
+	BgPurpleLight = func() *Color { return newColor().BgPurpleLight() }
+	BgCyanLight   = func() *Color { return newColor().BgCyanLight() }
+	BgWhiteLight  = func() *Color { return newColor().BgWhiteLight() }
 )
