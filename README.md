@@ -42,9 +42,9 @@ func main() {
 
 <p>
   <a href="https://www.linkedin.com/in/vinay-jeurkar/" rel="nofollow noreferrer" style="text-decoration:none;">
-    <img src="https://content.linkedin.com/content/dam/me/business/en-us/amp/brand-site/v2/bg/LI-Bug.svg.original.svg" height="12px" alt="linkedin"> LinkedIn
+    LinkedIn
   </a> &nbsp; 
   <a href="https://github.com/vinay03" rel="nofollow noreferrer" style="text-decoration:none;">
-    <img src="https://github.githubassets.com/images/modules/logos_page/Octocat.png" height="12px" alt="github"> Github
+    Github
   </a>
 </p>
