@@ -7,8 +7,6 @@ import (
 )
 
 func main() {
-	// chalk.LIBRARY_DEVELOPER_MODE = true
-
 	// Colors
 	fmt.Println("\n> Colors")
 	fmt.Println(chalk.Black(), "chalk.Black()", chalk.Reset())

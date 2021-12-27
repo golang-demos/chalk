@@ -11,10 +11,8 @@ type Color struct {
 	bgcolor int
 }
 
-var LIBRARY_DEVELOPER_MODE = false
-
 func (c Color) String() string {
-	var ext, finalValue string
+	var ext string
 	var parts []string
 
 	if c.bgcolor > 0 {
@@ -29,13 +27,7 @@ func (c Color) String() string {
 
 	ext = strings.Join(parts[:], ";")
 
-	if LIBRARY_DEVELOPER_MODE {
-		finalValue = "\\u001b["
-	} else {
-		finalValue = "\u001b["
-	}
-	finalValue += ext + "m"
-	return finalValue
+	return "\u001b[" + ext + "m"
 }
 
 // Colors
@@ -204,11 +196,7 @@ func (c *Color) BgWhiteLight() *Color {
 
 // For all reset. BackgroundColor and TextColor
 func Reset() string {
-	if LIBRARY_DEVELOPER_MODE {
-		return fmt.Sprintf("\\033[%dm", 0)
-	} else {
-		return fmt.Sprintf("\033[%dm", 0)
-	}
+	return fmt.Sprintf("\033[%dm", 0)
 }
 
 func newColor() *Color {
