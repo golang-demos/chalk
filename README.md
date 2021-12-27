@@ -2,56 +2,11 @@
 
 Chalk is a Go Package which can be used for making terminal output more vibrant with text colors, text styles and background colors.
 
-## API Syntax
-```
-chalk.[<TextColor>()][.<TextStyle>()][.<BackgroundColor>()]
-```
+### Usage
 
-For e.g.
-```
-chalk.Red().Bold().BgWhite()
-```
+![Instructions](/images/Instructions.png)
 
-Use following functions as per your need.
-
-### Text Colors
-- `Black()`
-- `Red()`
-- `Green()`
-- `Orange()`
-- `Yellow()`
-- `Blue()`
-- `Purple()`
-- `Violet()`
-- `Cyan()`
-- `White()`
-
-
-### Text Styles
-- `Bold()`
-- `Dim()`
-- `Italic()`
-- `Underline()`
-- `Inverse()`
-- `Hidden()`
-- `Strikethrough()`
-
-
-### Background Colors
-- `BgBlack()`
-- `BgRed()`
-- `BgGreen()`
-- `BgYellow()`
-- `BgBlue()`
-- `BgPurple()`
-- `BgCyan()`
-- `BgWhite()`
-
-### Reset
-- `chalk.Reset()` will reset all styles.
-
-
-## Examples
+## Sample Code
 ```go
 package main
 
@@ -62,23 +17,16 @@ import (
 )
 
 func main() {
-	fmt.Println("--", chalk.Red(), "Red + Regular", chalk.Reset(), "--")
-	fmt.Println("--", chalk.Red().Bold(), "Red + Bold", chalk.Reset(), "--")
-	fmt.Println("--", chalk.Red().Italic(), "Red + Italic", chalk.Reset(), "--")
+	fmt.Println(chalk.BlackLight(), "chalk.BlackLight()", chalk.Reset())
 
-	fmt.Println("--", chalk.White().BgRed(), "Red + Regular", chalk.Reset(), "--")
+	fmt.Println(chalk.Blue(), "chalk.Blue()", chalk.Reset())
 
-	fmt.Println("--", chalk.White().Bold().BgRed(), "White + Bold + BgRed", chalk.Reset(), "--")
-	fmt.Println("--", chalk.White().Bold().BgRed(true), "White + Bold + BgRed(I)", chalk.Reset(), "--")
+	fmt.Println(chalk.Underline(), "chalk.Underline()", chalk.Reset())
 
-	fmt.Println("--", chalk.Red().BgWhite(true), "Red + Regular + BgWhite(I)", chalk.Reset(), "--")
-	fmt.Println("--", chalk.Red(true).BgWhite(true), "Red(I) + Regular + BgWhite(I)", chalk.Reset(), "--")
-
-	fmt.Println("--", chalk.Black().Italic().BgGreen(), "Black + Italic + BgGreen", chalk.Reset(), "--")
-	fmt.Println("--", chalk.Black().Italic().BgGreen(true), "Black + Italic + BgGreen(I)", chalk.Reset(), "--")
-
-	fmt.Println("--", chalk.Cyan().BgBlack(true), "Cyan + Regular + BgBlack(I)", chalk.Reset(), "--")
-	fmt.Println("--", chalk.Cyan(true).BgBlack(true), "Cyan(I) + Regular + BgBlack(I)", chalk.Reset(), "--")
+	fmt.Println(chalk.Red().Italic(), "chalk.Red().Italic()", chalk.Reset())
+	fmt.Println(chalk.Green().Strikethrough(), "chalk.Green().Strikethrough()", chalk.Reset())
+	fmt.Println(chalk.Cyan().Underline().BgBlackLight(), "chalk.Cyan().Underline().BgBlackLight()", chalk.Reset())
+	fmt.Println(chalk.Yellow().BgRed().Inverse(), "chalk.Yellow().BgRed().Inverse()", chalk.Reset())
 }
 
 ```
