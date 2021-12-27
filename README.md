@@ -2,9 +2,14 @@
 
 Chalk is a Go Package which can be used for making terminal output more vibrant with text colors, text styles and background colors.
 
+### Documentation
+Check out godoc for some example usage: http://godoc.org/github.com/golang-demos/chalk
+
+
 ### Usage
 
 ![Instructions](/images/Instructions.png)
+
 
 ## Sample Code
 ```go
