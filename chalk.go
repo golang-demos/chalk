@@ -51,10 +51,6 @@ func (c *Color) Green() *Color {
 	c.color = 32
 	return c
 }
-func (c *Color) Orange() *Color {
-	c.color = 33
-	return c
-}
 func (c *Color) Yellow() *Color {
 	c.color = 33
 	return c
@@ -63,11 +59,7 @@ func (c *Color) Blue() *Color {
 	c.color = 34
 	return c
 }
-func (c *Color) Purple() *Color {
-	c.color = 35
-	return c
-}
-func (c *Color) Violet() *Color {
+func (c *Color) Magenta() *Color {
 	c.color = 35
 	return c
 }
@@ -92,10 +84,6 @@ func (c *Color) GreenLight() *Color {
 	c.color = 92
 	return c
 }
-func (c *Color) OrangeLight() *Color {
-	c.color = 93
-	return c
-}
 func (c *Color) YellowLight() *Color {
 	c.color = 93
 	return c
@@ -104,11 +92,7 @@ func (c *Color) BlueLight() *Color {
 	c.color = 94
 	return c
 }
-func (c *Color) PurpleLight() *Color {
-	c.color = 95
-	return c
-}
-func (c *Color) VioletLight() *Color {
+func (c *Color) MagentaLight() *Color {
 	c.color = 95
 	return c
 }
@@ -172,7 +156,7 @@ func (c *Color) BgBlue() *Color {
 	c.bgcolor = 44
 	return c
 }
-func (c *Color) BgPurple() *Color {
+func (c *Color) BgMagenta() *Color {
 	c.bgcolor = 45
 	return c
 }
@@ -205,7 +189,7 @@ func (c *Color) BgBlueLight() *Color {
 	c.bgcolor = 104
 	return c
 }
-func (c *Color) BgPurpleLight() *Color {
+func (c *Color) BgMagentaLight() *Color {
 	c.bgcolor = 105
 	return c
 }
@@ -237,28 +221,24 @@ func newColor() *Color {
 
 var (
 	// Text Colors
-	Black  = func() *Color { return newColor().Black() }
-	Red    = func() *Color { return newColor().Red() }
-	Green  = func() *Color { return newColor().Green() }
-	Orange = func() *Color { return newColor().Orange() }
-	Yellow = func() *Color { return newColor().Yellow() }
-	Blue   = func() *Color { return newColor().Blue() }
-	Purple = func() *Color { return newColor().Purple() }
-	Violet = func() *Color { return newColor().Violet() }
-	Cyan   = func() *Color { return newColor().Cyan() }
-	White  = func() *Color { return newColor().White() }
+	Black   = func() *Color { return newColor().Black() }
+	Red     = func() *Color { return newColor().Red() }
+	Green   = func() *Color { return newColor().Green() }
+	Yellow  = func() *Color { return newColor().Yellow() }
+	Blue    = func() *Color { return newColor().Blue() }
+	Magenta = func() *Color { return newColor().Magenta() }
+	Cyan    = func() *Color { return newColor().Cyan() }
+	White   = func() *Color { return newColor().White() }
 
 	// Text Light Colors
-	BlackLight  = func() *Color { return newColor().BlackLight() }
-	RedLight    = func() *Color { return newColor().RedLight() }
-	GreenLight  = func() *Color { return newColor().GreenLight() }
-	OrangeLight = func() *Color { return newColor().OrangeLight() }
-	YellowLight = func() *Color { return newColor().YellowLight() }
-	BlueLight   = func() *Color { return newColor().BlueLight() }
-	PurpleLight = func() *Color { return newColor().PurpleLight() }
-	VioletLight = func() *Color { return newColor().VioletLight() }
-	CyanLight   = func() *Color { return newColor().CyanLight() }
-	WhiteLight  = func() *Color { return newColor().WhiteLight() }
+	BlackLight   = func() *Color { return newColor().BlackLight() }
+	RedLight     = func() *Color { return newColor().RedLight() }
+	GreenLight   = func() *Color { return newColor().GreenLight() }
+	YellowLight  = func() *Color { return newColor().YellowLight() }
+	BlueLight    = func() *Color { return newColor().BlueLight() }
+	MagentaLight = func() *Color { return newColor().MagentaLight() }
+	CyanLight    = func() *Color { return newColor().CyanLight() }
+	WhiteLight   = func() *Color { return newColor().WhiteLight() }
 
 	// Text Styles
 	Bold          = func() *Color { return newColor().Bold() }
@@ -270,21 +250,21 @@ var (
 	Strikethrough = func() *Color { return newColor().Strikethrough() }
 
 	// Background Colors
-	BgBlack  = func() *Color { return newColor().BgBlack() }
-	BgRed    = func() *Color { return newColor().BgRed() }
-	BgGreen  = func() *Color { return newColor().BgGreen() }
-	BgYellow = func() *Color { return newColor().BgYellow() }
-	BgBlue   = func() *Color { return newColor().BgBlue() }
-	BgPurple = func() *Color { return newColor().BgPurple() }
-	BgCyan   = func() *Color { return newColor().BgCyan() }
-	BgWhite  = func() *Color { return newColor().BgWhite() }
+	BgBlack   = func() *Color { return newColor().BgBlack() }
+	BgRed     = func() *Color { return newColor().BgRed() }
+	BgGreen   = func() *Color { return newColor().BgGreen() }
+	BgYellow  = func() *Color { return newColor().BgYellow() }
+	BgBlue    = func() *Color { return newColor().BgBlue() }
+	BgMagenta = func() *Color { return newColor().BgMagenta() }
+	BgCyan    = func() *Color { return newColor().BgCyan() }
+	BgWhite   = func() *Color { return newColor().BgWhite() }
 
-	BgBlackLight  = func() *Color { return newColor().BgBlackLight() }
-	BgRedLight    = func() *Color { return newColor().BgRedLight() }
-	BgGreenLight  = func() *Color { return newColor().BgGreenLight() }
-	BgYellowLight = func() *Color { return newColor().BgYellowLight() }
-	BgBlueLight   = func() *Color { return newColor().BgBlueLight() }
-	BgPurpleLight = func() *Color { return newColor().BgPurpleLight() }
-	BgCyanLight   = func() *Color { return newColor().BgCyanLight() }
-	BgWhiteLight  = func() *Color { return newColor().BgWhiteLight() }
+	BgBlackLight   = func() *Color { return newColor().BgBlackLight() }
+	BgRedLight     = func() *Color { return newColor().BgRedLight() }
+	BgGreenLight   = func() *Color { return newColor().BgGreenLight() }
+	BgYellowLight  = func() *Color { return newColor().BgYellowLight() }
+	BgBlueLight    = func() *Color { return newColor().BgBlueLight() }
+	BgMagentaLight = func() *Color { return newColor().BgMagentaLight() }
+	BgCyanLight    = func() *Color { return newColor().BgCyanLight() }
+	BgWhiteLight   = func() *Color { return newColor().BgWhiteLight() }
 )
