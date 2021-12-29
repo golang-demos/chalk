@@ -105,6 +105,9 @@ func Test_MixedScenarios(t *testing.T) {
 		ID       string
 	}{
 		{"\u001b[107;31;1m", Red().Bold().BgWhiteLight().String(), "Red().Bold().BgWhiteLight()"},
+		{"\u001b[47;35;3m", Italic().Magenta().BgWhite().String(), "Italic().Magenta().BgWhite()"},
+		{"\u001b[34;4m", Blue().Underline().String(), "Blue().Underline()"},
+		{"\u001b[107;30m", Black().BgWhiteLight().String(), "Black().BgWhiteLight()"},
 	}
 
 	for _, test := range mixedTests {
