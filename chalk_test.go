@@ -35,3 +35,24 @@ func Test_BasicColors(t *testing.T) {
 		}
 	}
 }
+
+func Test_TextStyles(t *testing.T) {
+	var styleTests = []struct {
+		Expected  string
+		Actual    string
+		StyleName string
+	}{
+		{"\u001b[1m", Bold().String(), "Bold"},
+		{"\u001b[2m", Dim().String(), "Dim"},
+		{"\u001b[3m", Italic().String(), "Italic"},
+		{"\u001b[4m", Underline().String(), "Underline"},
+		{"\u001b[7m", Inverse().String(), "Inverse"},
+		{"\u001b[8m", Hidden().String(), "Hidden"},
+		{"\u001b[9m", Strikethrough().String(), "Strikethrough"},
+	}
+	for _, test := range styleTests {
+		if test.Actual != test.Expected {
+			t.Error("Expected modifier is not same as actual string for Color " + test.StyleName)
+		}
+	}
+}
