@@ -88,6 +88,15 @@ func Test_BackgroundColors(t *testing.T) {
 	}
 }
 
+func Test_ResetSequence(t *testing.T) {
+	expected := "\u001b[0m"
+	actual := Reset()
+
+	if expected != actual {
+		t.Error("Expected modifier is n ot same as actual string for Reset style purpose")
+	}
+}
+
 func Test_MixedScenarios(t *testing.T) {
 
 	var mixedTests = []struct {
