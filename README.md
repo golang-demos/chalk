@@ -32,6 +32,11 @@ func main() {
 	fmt.Println(chalk.Green().Strikethrough(), "chalk.Green().Strikethrough()", chalk.Reset())
 	fmt.Println(chalk.Cyan().Underline().BgBlackLight(), "chalk.Cyan().Underline().BgBlackLight()", chalk.Reset())
 	fmt.Println(chalk.Yellow().BgRed().Inverse(), "chalk.Yellow().BgRed().Inverse()", chalk.Reset())
+
+	// For Existing Code
+	fmt.Print(chalk.Green())
+	fmt.Prinln("Data Sent Successfully")
+	fmt.Print(chalk.Reset())
 }
 
 ```
