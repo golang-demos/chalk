@@ -87,3 +87,21 @@ func Test_BackgroundColors(t *testing.T) {
 		}
 	}
 }
+
+func Test_MixedScenarios(t *testing.T) {
+
+	var mixedTests = []struct {
+		Expected string
+		Actual   string
+		ID       string
+	}{
+		{"\u001b[107;31;1m", Red().Bold().BgWhiteLight().String(), "Red().Bold().BgWhiteLight()"},
+	}
+
+	for _, test := range mixedTests {
+		if test.Expected != test.Actual {
+			t.Error("Expected string is not same as actual string for : " + test.ID)
+		}
+	}
+
+}
