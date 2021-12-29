@@ -31,7 +31,7 @@ func Test_BasicColors(t *testing.T) {
 
 	for _, test := range colorTests {
 		if test.Actual != test.Expected {
-			t.Error("Expected modifier is not same as actual string for Color " + test.ColorName)
+			t.Error("Expected modifier is not same as actual string for Color : " + test.ColorName)
 		}
 	}
 }
@@ -52,7 +52,38 @@ func Test_TextStyles(t *testing.T) {
 	}
 	for _, test := range styleTests {
 		if test.Actual != test.Expected {
-			t.Error("Expected modifier is not same as actual string for Color " + test.StyleName)
+			t.Error("Expected modifier is not same as actual string for Text Style : " + test.StyleName)
+		}
+	}
+}
+
+func Test_BackgroundColors(t *testing.T) {
+	var backgroundColorTests = []struct {
+		Expected  string
+		Actual    string
+		ColorName string
+	}{
+		{"\u001b[40m", BgBlack().String(), "BgBlack"},
+		{"\u001b[41m", BgRed().String(), "BgRed"},
+		{"\u001b[42m", BgGreen().String(), "BgGreen"},
+		{"\u001b[43m", BgYellow().String(), "BgYellow"},
+		{"\u001b[44m", BgBlue().String(), "BgBlue"},
+		{"\u001b[45m", BgMagenta().String(), "BgMagenta"},
+		{"\u001b[46m", BgCyan().String(), "BgCyan"},
+		{"\u001b[47m", BgWhite().String(), "BgWhite"},
+		{"\u001b[100m", BgBlackLight().String(), "BgBlackLight"},
+		{"\u001b[101m", BgRedLight().String(), "BgRedLight"},
+		{"\u001b[102m", BgGreenLight().String(), "BgGreenLight"},
+		{"\u001b[103m", BgYellowLight().String(), "BgYellowLight"},
+		{"\u001b[104m", BgBlueLight().String(), "BgBlueLight"},
+		{"\u001b[105m", BgMagentaLight().String(), "BgMagentaLight"},
+		{"\u001b[106m", BgCyanLight().String(), "BgCyanLight"},
+		{"\u001b[107m", BgWhiteLight().String(), "BgWhiteLight"},
+	}
+
+	for _, test := range backgroundColorTests {
+		if test.Expected != test.Actual {
+			t.Error("Expected modifier is not same as actual string for Background Color : " + test.ColorName)
 		}
 	}
 }
