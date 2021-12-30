@@ -1,4 +1,4 @@
-### To run unit tests1
+## To run unit tests
 
 
 ### Run tests with Verbose output
@@ -6,7 +6,7 @@
 go test -v
 ```
 
-## Run tests with coverage details
+### Run tests with coverage details
 ```
 go test -v -cover
 ```
