@@ -12,6 +12,7 @@ go test -v -cover
 ```
 
 ### Run tests and generate coverage information
+Below command puts coverage data in `cover.txt` which can be read by `go tool cover` commands.
 ```
 go test -coverprofile=cover.txt
 ```
@@ -27,7 +28,8 @@ go tool cover -func=cover.txt
 ```
 
 
-####
+#### Coverage with Iteration Count
+This command creates coverage data with iteration details.
 ```
 go test -v -cover -covermode=count -coverprofile=cover.txt
 ```
