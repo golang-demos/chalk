@@ -41,6 +41,9 @@ func main() {
 
 ```
 
+## Source
+- https://www.lihaoyi.com/post/BuildyourownCommandLinewithANSIescapecodes.html
+
 
 ## Author
 ### Vinay Jeurkar
@@ -57,6 +60,3 @@ func main() {
   </a>
 </p>
 
-
-## Source
-- https://www.lihaoyi.com/post/BuildyourownCommandLinewithANSIescapecodes.html
