@@ -7,9 +7,6 @@ import (
 )
 
 func main() {
-	fmt.Println(chalk.Black("BlackText", chalk.Yellow("Yellow")))
-	fmt.Println(chalk.Black().Bold().BgWhite("Vinay"))
-	fmt.Println()
 
 	// Colors
 	fmt.Println("\n> Colors")
