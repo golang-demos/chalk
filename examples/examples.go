@@ -13,7 +13,6 @@ func main() {
 
 	// Colors
 	fmt.Println("\n> Colors")
-
 	fmt.Println(chalk.Black("Black-Text"))
 	fmt.Println(chalk.BlackLight("BlackLight-Text"))
 	fmt.Println(chalk.Red("Red-Text"))
