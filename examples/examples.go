@@ -64,6 +64,7 @@ func main() {
 	fmt.Println(chalk.Yellow().BgRed().Inverse("Yellow-text-on-red-inverted"))
 
 	// Reusable configurations
+	fmt.Println("\n> Reusable Configurations")
 	SuccessMessage := chalk.Green().Bold("SUCCESS : ")
 	WarningMessage := chalk.YellowLight().Bold("WARNING : ")
 	ErrorMessage := chalk.RedLight().Bold("ERROR   : ")

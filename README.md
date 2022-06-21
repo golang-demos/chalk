@@ -6,8 +6,11 @@ Chalk is a Go Package which can be used for making terminal output more vibrant 
 Check out godoc for some example usage: http://godoc.org/github.com/golang-demos/chalk
 
 
-### Sample Output
-![Instructions](/images/Instructions.png)
+### Example Code
+[ExampleCode](examples/examples.go)
+
+### Example Output
+![SampleOutput](/images/sample_output.png)
 
 
 ## Colors
