@@ -63,4 +63,14 @@ func main() {
 	fmt.Println(chalk.Cyan().Underline().BgBlackLight("Cyan-underline-text-on-BgBlackLight"))
 	fmt.Println(chalk.Yellow().BgRed().Inverse("Yellow-text-on-red-inverted"))
 
+	// Reusable configurations
+	SuccessMessage := chalk.Green().Bold("SUCCESS : ")
+	WarningMessage := chalk.YellowLight().Bold("WARNING : ")
+	ErrorMessage := chalk.RedLight().Bold("ERROR   : ")
+
+	fmt.Println(SuccessMessage.Apply("Completed successfully"))
+	fmt.Println(SuccessMessage.Apply("Process Complete"))
+	fmt.Println(WarningMessage.Apply("Call Deprecated"))
+	fmt.Println(ErrorMessage.Apply("Fatal error ocurred"))
+
 }
