@@ -46,10 +46,21 @@ func (c Color) String() string {
 
 	return returnString
 }
-func (c *Color) SetText(msgs []interface{}) {
+
+func (c Color) Apply(msgs ...interface{}) Color {
+	c.SetText(msgs)
+	return c
+}
+
+func (c *Color) SetText(msgs []interface{}) *Color {
 	if len(msgs) > 0 {
-		c.text = msgs
+		if len(c.text) == 0 {
+			c.text = msgs
+		} else {
+			c.text = append(c.text, msgs...)
+		}
 	}
+	return c
 }
 
 // Colors
