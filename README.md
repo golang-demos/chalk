@@ -10,7 +10,7 @@ Check out godoc for some example usage: http://godoc.org/github.com/golang-demos
 [ExampleCode](examples/examples.go)
 
 ### Example Output
-![SampleOutput](/images/sample_output.png)
+![SampleOutput](images/sample_output.png)
 
 
 ## Colors
